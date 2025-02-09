@@ -11,7 +11,7 @@ class UserService {
     }
   }
 
-  async saveUser(userData: any) {
+  async saveUser(userData: any, uId: any) {
     if (userData) {
       try {
         const response = await fetch("/api/users", {
@@ -22,8 +22,10 @@ class UserService {
         return result;
       } catch (e) {
         console.log("Error saving user:", e);
-        return false;
+        //return Uid;
       }
+    } else {
+      throw Error("this userDada on this uId");
     }
   }
 }

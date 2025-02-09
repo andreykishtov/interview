@@ -6,6 +6,9 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {
+  let pay = {
+    id: req.body.id,
+  };
   res.json({ message: "GET request successful" });
 });
 
