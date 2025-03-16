@@ -1,17 +1,21 @@
 class UserService {
   private users: any[] = [];
 
-  async getUser(id: any) {
-    try {
-      const user = await fetch(`/api/users/${id}`);
-      return user.json();
-    } catch (e) {
-      console.log("Error fetching user:", e);
-      return null;
+  async getUser(id: string) {
+    if (id) {
+      try {
+        const user = await fetch(`/api/users/${id}`);
+        return user.json();
+      } catch (e) {
+        console.log("Error fetching user:", e);
+        return null;
+      }
     }
+    console.log("id is empty or not exist ");
+    return null;
   }
 
-  async saveUser(userData: any) {
+  async saveUser(userData: UserData) {
     if (userData) {
       try {
         const response = await fetch("/api/users", {
@@ -25,5 +29,7 @@ class UserService {
         return false;
       }
     }
+    console.log("id is empty or not exist ");
+    return false;
   }
 }
