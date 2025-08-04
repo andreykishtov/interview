@@ -26,7 +26,6 @@ const Timeline = ({ events }) => {
 };
 
 export default Timeline;
-
 ```
 
 # Interview Questions: Timeline Component
